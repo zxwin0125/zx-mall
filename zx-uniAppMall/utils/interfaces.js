@@ -1,4 +1,4 @@
-// 接口文件
+// 数据接口文件
 // 根路径
 const domain = "https://uniapp-interface.herokuapp.com/";
 const interfaces = {
