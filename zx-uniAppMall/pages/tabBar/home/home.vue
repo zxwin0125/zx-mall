@@ -24,6 +24,17 @@
 			</view>
 		</view>
 		
+		<!-- 分类列表 -->
+		<view class="category-list">
+			<!-- 跳转方法,传递遍历出来的每个item -->
+			<view @tap="handleCategory(item)" class="category" v-for="(item,index) in categoryList" :key="index">
+				<view class="img">
+					<image :src="item.img"></image>
+				</view>
+				<view class="text">{{item.name}}</view>
+			</view>
+		</view>
+		
 	</view>
 	
 	
@@ -49,6 +60,7 @@
 			this.initData();
 		},
 		methods: {
+			// 1. 获取数据方法
 			initData() {
 				// uniapp发送get请求方法
 				this.request({
@@ -62,11 +74,20 @@
 					})
 				})
 			},
+			// 2. 动态改变样式
 			swiperChange(event) { // 图片变化事件
 				// event 事件对象
 				// console.log(event.detail.current);
 				this.currentSwiper = event.detail.current; // 当前图片下标
-			}
+			},
+			// 分类跳转方法
+			handleCategory(item) {
+				// 分类跳转
+				// console.log(item.name);
+				uni.navigateTo({
+					url:"../../goods/goodsList?name="+item.name
+				})
+			},
 			
 		}
 	}
