@@ -43,9 +43,10 @@
 		z-index: 10;
 		background-color: #fff;
 		top: 0;
-		// 条件编译 设置离顶部的高度
+		// 跨端兼容 条件编译 设置离顶部的高度
+		// 状态栏高度
 		/*  #ifdef  APP-PLUS  */
-		top: var(--status-bar-height);
+		top: var(--status-bar-height); // WX固定值25upx  H5+App状态栏为实际状态栏高度
 		/*  #endif  */
 
 		.addr {
