@@ -3,7 +3,11 @@
 		{
 			"path": "pages/tabBar/home/home",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "首页",
+				"app-plus": { // 去除系统默认的导航栏
+					"titleNView":false,
+					"bounce":"none"
+				}
 			}
 		},
 		{

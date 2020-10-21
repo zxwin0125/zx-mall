@@ -15,7 +15,7 @@
 <style>
 	/*每个页面公共css */
 	/* 引入全局css文件 */
-	@import "/static/iconfont/iconfont/iconfont.css";
+	@import "/static/iconfont/iconfont.css";
 	page{
 		position: relative;
 		background-color: #fff;
