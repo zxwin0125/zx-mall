@@ -1,24 +1,29 @@
 <template>
-	<!-- 解决真机中的状态栏问题 -->
-	<!-- 什么是状态栏/手机上显示电池的那栏 -->
-	<!-- 沉浸式状态栏/背景类透明，与顶部导航栏融合 -->
-	<!-- 自定义导航栏 -->
-	<view class="header">
-		<!-- 定位城市 --> 
-		<view class="addr">
-			<view class="icon iconfont">&#xe650;</view> {{city}}
+	<view>
+		<!-- 解决真机中的状态栏问题 -->
+		<!-- 什么是状态栏/手机上显示电池的那栏 -->
+		<!-- 沉浸式状态栏/背景类透明，与顶部导航栏融合 -->
+		<!-- 自定义导航栏 -->
+		<view class="header">
+			<!-- 定位城市 --> 
+			<view class="addr">
+				<view class="icon iconfont">&#xe650;</view> {{city}}
+			</view>
+			<!-- 搜索框 -->
+			<view class="input-box">
+				<input type="text" placeholder="搜点啥呢..." placeholder-style="color:#c0c0c0" />
+				<view class="icon iconfont">&#xe65c;</view>
+			</view>
+			
+			<!-- 提示信息 -->
+			<view class="icon-btn">
+				<view class="icon iconfont">&#xe70a;</view>
+			</view>
 		</view>
-		<!-- 搜索框 -->
-		<view class="input-box">
-			<input type="text" placeholder="搜点啥呢..." placeholder-style="color:#c0c0c0" />
-			<view class="icon iconfont">&#xe65c;</view>
-		</view>
-		
-		<!-- 提示信息 -->
-		<view class="icon-btn">
-			<view class="icon iconfont">&#xe70a;</view>
-		</view>
+		<!-- 占位 -->
+		<view class="place"></view>
 	</view>
+	
 	
 </template>
 
