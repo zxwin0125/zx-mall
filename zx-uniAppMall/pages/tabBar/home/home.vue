@@ -24,15 +24,15 @@
 		methods: {
 			initData() {
 				// uniapp发送get请求方法
-				uni.request({
+				this.request({
 					url: interfaces.getMallData, // url路径
-					success: (res) => {
+					success: ((res) => {
 						// console.log(res) 打印所有数据
 						// 将数据分别赋值给数组
 						this.swiperList = res.data.swiperList;
 						this.categoryList = res.data.categoryList;
 						this.promotion = res.data.promotion;
-					}
+					})
 				})
 			}
 		}
