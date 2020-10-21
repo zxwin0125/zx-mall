@@ -35,6 +35,12 @@
 			</view>
 		</view>
 		
+		<!-- 广告图banner -->
+		<!-- 判断如果有广告，就显示图片 -->
+		<view v-if="promotion.length > 0" class="banner">
+			<image src="/static/img/category/ad.jpg"></image>
+		</view>
+		
 	</view>
 	
 	
