@@ -41,6 +41,26 @@
 			<image src="/static/img/category/ad.jpg"></image>
 		</view>
 		
+		<!-- 活动区 -->
+		<view class="promotion" v-if="promotion.length > 0">
+			<view class="text">优惠活动</view>
+			<view class="list">
+				<!-- 消息提示 -->
+				<view @tap="handlePromotion(item)" class="column" v-for="(item,index) in promotion" :key="index">
+					<view class="top">
+						<view class="title">{{item.title}}</view>
+					</view>
+					<view class="left">
+						<view class="ad">{{item.ad}}</view>
+						<view class="into">点击进入</view>
+					</view>
+					<view class="right">
+						<image :src="item.img"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+		
 	</view>
 	
 	
@@ -86,7 +106,7 @@
 				// console.log(event.detail.current);
 				this.currentSwiper = event.detail.current; // 当前图片下标
 			},
-			// 分类跳转方法
+			// 3. 分类跳转方法
 			handleCategory(item) {
 				// 分类跳转
 				// console.log(item.name);
@@ -94,6 +114,13 @@
 					url:"../../goods/goodsList?name="+item.name
 				})
 			},
+			// 4. 消息提示方法
+			handlePromotion(item) {
+				uni.showToast({
+					title: item.title,
+					icon: 'none'
+				})
+			}
 			
 		}
 	}
