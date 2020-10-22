@@ -7,7 +7,26 @@
 				{{target.text}}
 			</view>
 		</view>
-		
+		<!-- 占位 tabbar 有定位 -->
+		<view class="place"></view>
+		<!-- 商品列表 -->
+		<view class="goods-list">
+			<view class="product-list">
+				<!-- 遍历商品列表数据 -->
+				<view class="product" @tap="handleGoods(goods)" v-for="goods in goodsList" :key="goods.goods_id">
+					<image mode="widthFix" :src="goods.img"></image>
+					<view class="name">{{goods.name}}}</view>
+					<view class="info">
+						<view class="price">
+							<text>￥</text>
+							{{goods.price}}
+						</view>
+						<view class="slogan">{{goods.slogan}} <text>人付款</text></view>
+					</view>
+				</view>
+			</view>
+			<view class="loading-text">{{loadingText}}</view>
+		</view>
 	</view>
 </template>
 
@@ -41,13 +60,15 @@
 			}
 		},
 		methods: {
+			// 商品跳转方法
 			handleGoods(goods){
 				// 页面跳转 商品详情
 				uni.navigateTo({
 					url:'./goods?goodsInfo='+JSON.stringify(goods)
 				})
 			},
-			// 选中切换方法
+			
+			// 选中切换事件
 			handleSelect(index) {
 				this.filterByList[index].selected = true;
 
@@ -58,9 +79,30 @@
 					}
 				}
 				
-				
+				// 数据请求
+				this.filterby = this.filterByList[index].filterby;
+				this.page = 1;
+				this.loadingText = "加载中...";
+				this.goodsList = [];
+				this.loadData();
 			},
 			
+			// 加载数据方法
+			loadData() {
+				this.request({
+					// 拼接请求路径
+					url: `${interfaces.getGoodsList}/${this.filterby}/${this.page}/${this.size}`,
+					success: ((res) => {
+						if(res.data.length > 0){
+							res.data.forEach(item => {
+								this.goodsList.push(item);
+							})
+						}else{
+							this.loadingText = "到底了";
+						}
+					})
+				})
+			}
 		},
 		onLoad(option) {
 			// 获取商品列表页传过来的数据
@@ -73,7 +115,20 @@
 			// 加载数据
 			this.loadData();
 		},
-		
+		onPullDownRefresh(){
+			setTimeout(() => {
+				this.page = 1;
+				this.loadingText = "加载中...";
+				this.goodsList = [];
+				this.loadData();
+				uni.stopPullDownRefresh();
+			},1000)
+		},
+		// 上拉加载
+		onReachBottom(){
+			this.page++;
+			this.loadData();
+		}
 	}
 </script>
 
