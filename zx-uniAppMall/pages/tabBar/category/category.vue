@@ -61,6 +61,7 @@
 			handleCategoryList(item){
 				// console.log(item.name);
 				uni.navigateTo({
+					// 拼接商品参数
 					url:"../../goods/goodsList?name="+item.name
 				})
 			},

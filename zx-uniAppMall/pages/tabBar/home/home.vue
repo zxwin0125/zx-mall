@@ -111,6 +111,7 @@
 			// 3. 分类跳转方法
 			handleCategory(item) {
 				// 分类跳转
+				// 拼接对应的参数
 				// console.log(item.name);
 				uni.navigateTo({
 					url:"../../goods/goodsList?name="+item.name
