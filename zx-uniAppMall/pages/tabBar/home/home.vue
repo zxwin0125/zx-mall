@@ -1,8 +1,10 @@
 <template>
 	<view>
+		<!-- 状态栏 -->
+		<page-status></page-status>
+		
 		<!-- 自定义顶部导航栏 -->
 		<pageHeader />
-		
 		
 		<!-- 轮播图 -->
 		<view class="swiper">
