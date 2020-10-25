@@ -9,6 +9,7 @@ const interfaces = {
 	// 获取商品列表数据
 	getGoodsList: domain + 'api/profiles/goodslist',
 	// 商品详情信息
-	getGoods: domain + "api/profiles/goods"
+	getGoods: domain + "api/profiles/goods",
+	
 }
 module.exports = interfaces;
