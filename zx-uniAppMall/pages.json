@@ -35,7 +35,22 @@
 		{
 			"path": "pages/goods/goodsList",
 			"style": {
-				"navigationBarTitleText": "" // 动态改变
+				"navigationBarTitleText": "" ,// 动态改变
+				"enablePullDownRefresh": true ,// 允许下拉加载
+				"onReachBottomDistance": 0 // 上拉加载触发时距离底部的距离
+			}
+		},
+		{
+			"path": "pages/goods/goods",
+			"style": {
+				"navigationBarTitleText": "商品",
+				"h5": {
+					"titleNView": false // 隐藏默认导航栏
+				},
+				"app-plus": {
+					"titleNView": false, // 隐藏移动app端的默认导航栏
+					"bounce": "none"
+				}
 			}
 		}
 	],

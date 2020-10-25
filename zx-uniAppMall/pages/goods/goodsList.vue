@@ -59,6 +59,7 @@
 				]
 			}
 		},
+		
 		methods: {
 			// 商品跳转方法
 			handleGoods(goods){
@@ -93,7 +94,7 @@
 					// 拼接请求路径
 					url: `${interfaces.getGoodsList}/${this.filterby}/${this.page}/${this.size}`,
 					success: ((res) => {
-						if(res.data.length > 0){
+						if(res.data.length > 0){ // 判断商品数据长度
 							res.data.forEach(item => {
 								this.goodsList.push(item);
 							})
@@ -104,6 +105,8 @@
 				})
 			}
 		},
+		
+		// onload: 只加载一次，监听页面加载，其参数为上个页面传递的数据，参数类型为Object（用于页面传参）
 		onLoad(option) {
 			// 获取商品列表页传过来的数据
 			// console.log(option);
@@ -115,19 +118,23 @@
 			// 加载数据
 			this.loadData();
 		},
+		
+		// 下拉加载更多
 		onPullDownRefresh(){
+			// 定时器
 			setTimeout(() => {
 				this.page = 1;
 				this.loadingText = "加载中...";
 				this.goodsList = [];
-				this.loadData();
-				uni.stopPullDownRefresh();
+				this.loadData(); // 加载数据
+				uni.stopPullDownRefresh(); // 清除下拉加载
 			},1000)
 		},
-		// 上拉加载
+		
+		// 上拉加载更多
 		onReachBottom(){
-			this.page++;
-			this.loadData();
+			this.page++; // 更改page值
+			this.loadData(); // 加载数据
 		}
 	}
 </script>
