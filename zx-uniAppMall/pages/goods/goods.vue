@@ -73,9 +73,11 @@
 		<view class="description">
 			<view class="title">———— 商品详情 ————</view>
 			<view class="content">
+				<!-- rich代码块，插入节点 -->
 				<rich-text :nodes="goodsData.descriptionStr"></rich-text>
 			</view>
 		</view>
+		
 		<!-- 底部菜单 -->
 		<view class="footer">
 			<view class="icons">
@@ -165,10 +167,12 @@
 					})
 				})
 			},
+			
 			swiperChange(event) {
 				// console.log(event.detail.current);
 				this.currentSwiper = event.detail.current;
 			},
+			
 			handleRatings() {
 				// 本地存储
 				uni.setStorageSync('comments', this.goodsData.comment)
@@ -177,10 +181,11 @@
 					url: "./ratings"
 				})
 			},
+			
 			keep(){
 				this.isKeep = !this.isKeep;
 				if(this.isKeep){
-					uni.showToast({
+					uni.showToast({ // 消息提示
 						icon:"success",
 						title:"已收藏"
 					})
