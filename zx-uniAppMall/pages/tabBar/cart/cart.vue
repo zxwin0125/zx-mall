@@ -5,6 +5,33 @@
 			<!-- 判断商品数据是否为0 -->
 			<view class="empty" v-if="goodsList.length == 0">购物车空空如也~</view>
 			
+			<!-- 商品 -->
+			<view class="production" @touchstart="handleTouchStart(index,$event)" @touchmove="handleTouchMove(index,$event)"
+			 @touchend="handleTouchEnd(index,$event)" :class="[theIndex == index ? 'open' : oldIndex == index ? 'close' : '']">
+				<!-- checkbox -->
+				<!-- 选中事件方法 -->
+				<view class="container" @tap="handleCheckbox(item)">
+					<view class="checkbox">
+						<view :class="{'on':item.selected}"></view>
+					</view>
+				</view>
+			
+				<!-- 商品详情 -->
+				<view class="goods-info" @tap="handleGoodsInfo(item)">
+					<view class="img">
+						<image :src="item.img"></image>
+					</view>
+					<view class="info">
+						<view class="title">{{item.name}}</view>
+						<view class="spec">{{item.spec}}</view>
+						<view class="price-number">
+							<view class="price">￥{{item.price}}</view>
+							<counter :goodsInfo="item" @add="add(item)" @sub="sub(item)" />
+						</view>
+					</view>
+				</view>
+			</view>
+			
 		</view>
 
 		
