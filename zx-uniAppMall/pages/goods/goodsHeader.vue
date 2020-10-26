@@ -6,6 +6,7 @@
 				<view v-if="showback" @tap="back" class="icon iconfont">&#xe679;</view>
 			</view>
 			<view class="middle"></view>
+			<!-- 购物车按钮 -->
 			<view class="icon-btn">
 				<view @tap="showCart" class="icon iconfont">&#xe6af;</view>
 			</view>
