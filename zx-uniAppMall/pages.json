@@ -52,6 +52,12 @@
 					"bounce": "none"
 				}
 			}
+		},
+		{
+			"path": "pages/goods/ratings",
+			"style": {
+				"navigationBarTitleText": "商品评论"
+			}
 		}
 	],
 	"globalStyle": {
