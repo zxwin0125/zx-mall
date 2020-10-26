@@ -75,5 +75,16 @@
     },
     "uniStatistics" : {
         "enable" : false
+    },
+    "h5" : {
+        "title" : "zx-uniMall",
+        "router" : {
+            "mode" : "hash",
+            "base" : "/h5/"
+        },
+        "devServer" : {
+            "https" : false
+        },
+        "domain" : "unimall.zxqdh.cn"
     }
 }

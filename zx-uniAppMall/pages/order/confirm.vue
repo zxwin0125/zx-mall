@@ -67,7 +67,7 @@
 				}
 			})
 		},
-		filters:{
+		filters:{ // 过滤器
 			toFixed(x){
 				return parseFloat(x).toFixed(2); 
 			}
