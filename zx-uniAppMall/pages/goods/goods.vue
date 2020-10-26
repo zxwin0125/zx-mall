@@ -191,7 +191,8 @@
 					})
 				}
 			},
-			joinCart(){
+			
+			joinCart(){ // 加入购物车
 				// console.log(this.goodsInfo);
 				
 				// 存储到本地存储里
@@ -206,7 +207,8 @@
 						// 查找商品是否存在
 						let isExist = false;
 						
-						goodsList.forEach(goods => {
+						goodsList.forEach(goods => { // 避免重复存储
+							// 判断商品id和规格是否一样
 							if(goods.goods_id == this.goodsInfo.goods_id && goods.spec == this.goodsInfo.spec){
 								// 如果存在 修改商品商量
 								goods.number += this.goodsInfo.number;
@@ -214,7 +216,7 @@
 							}
 						})
 						
-						if(!isExist){
+						if(!isExist){ // 如果不存在
 							goodsList.push(this.goodsInfo);
 							// 更新本地存储
 							this.setGoodsList(goodsList);
@@ -232,6 +234,7 @@
 					})
 				})
 			},
+			
 			setGoodsList(goodsList){
 				// console.log("存储到本地存储中")
 				// 存储到本地存储中
